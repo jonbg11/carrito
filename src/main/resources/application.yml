@@ -1,0 +1,34 @@
+server:
+  servlet:
+    context-path: /api/v1
+  port: 8080
+
+app:
+  ignoreSession: true
+  allowedOrigins: "*"
+  allowedMethods: GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD
+  allowedHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Headers,Access-Control-Allow-Methods,Accept,Authorization,Content-Type,Method,Origin,X-Forwarded-For,X-Real-IP
+  exposedHeaders: X-Get-Header
+
+spring:
+  datasource:
+    url: jdbc:mysql://sql.freedb.tech:3306/freedb_carritojbg
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: freedb_adminjon
+    password: j?kVR3XpXmRcM4F
+    tomcat:
+      connection-properties: useUnicode=true;characterEncoding=utf-8;
+    hikari:
+      minimumIdle: 4
+      maximumPoolSize: 8
+      idleTimeout: 15000
+      poolName: SpringBootJPAHikariCP
+      maxLifetime: 1800000
+      connectionTimeout: 30000
+  sql:
+    init:
+      encoding: UTF-8
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
